@@ -25,7 +25,7 @@ repeat
                         if ((prevTitle is "Untitled" or prevTitle starts with "multitwitch.tv") and (currentTitle starts with "multitwitch")) then
                             -- Activate the window
                             activate
-                            delay 2
+                            delay 4
                             
                             -- Set flag to perform mouse operations
                             set shouldPerformMouseOps to true
@@ -95,7 +95,7 @@ repeat
                 
                 -- Send 'm' to unmute
                 keystroke "m"
-                -- log "Sent 'm' keystroke to unmute"
+                log "Sent 'm' keystroke to unmute"
             end tell            
         end if
     end tell
