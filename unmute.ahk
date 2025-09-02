@@ -4,7 +4,7 @@ TraySetIcon("multitwitch.ico")  ; any icon
 
 global prevTitle := ""
 
-SetTimer(CheckActive, 250)
+SetTimer(CheckActive, 100)
 
 CheckActive() {
     global prevTitle
