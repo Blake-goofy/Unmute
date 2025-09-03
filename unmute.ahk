@@ -3,11 +3,12 @@
 TraySetIcon("multitwitch.ico")  ; any icon
 
 global prevTitle := ""
+global checkPeriod := 1000
 
-SetTimer(CheckActive, 250)
+SetTimer(CheckActive, checkPeriod)
 
 CheckActive() {
-    global prevTitle
+    global prevTitle, checkPeriod
     local win, title, x, y, w, h, mouseX, mouseY
     win := WinExist("A")
     if !win
@@ -16,6 +17,14 @@ CheckActive() {
     if !WinActive("ahk_exe brave.exe")
         return
     title := WinGetTitle("ahk_id " . win)
+    
+    ; Adjust check frequency based on title
+    if StrLower(title) == "multitwitch live selector - brave"
+        checkPeriod := 10
+    else
+        checkPeriod := 1000
+    SetTimer(CheckActive, checkPeriod)
+    
     ; Only unmute when title changes from loading to final
     if !( (StrLower(prevTitle) == "untitled - brave" or InStr(StrLower(prevTitle), "multitwitch.tv/") == 1) and StrLower(title) == "multitwitch - brave" )
         {

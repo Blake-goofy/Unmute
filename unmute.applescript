@@ -3,9 +3,9 @@ set prevTitle to ""
 
 repeat
     tell application "System Events"
-        set frontApp to name of first application process whose frontmost is true
-        if frontApp is "Brave Browser" then
-            tell application "Brave Browser"
+        set frontApp to name of (first process whose frontmost is true)
+        if frontApp is "Brave" then
+            tell application "Brave"
                 set currentTitle to title of front window
                 -- Check if title changed from loading to final
                 if ((prevTitle is "New Tab - Brave" or prevTitle is "New Tab" or prevTitle starts with "multitwitch.tv") and (currentTitle is "Multitwitch - Brave" or currentTitle is "Multitwitch")) then
@@ -26,7 +26,7 @@ repeat
                     delay 1
                     
                     -- Click
-                    click mouse
+                    click
                     delay 0.1
                     
                     -- Send 'm' to unmute
