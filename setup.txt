@@ -1,0 +1,3 @@
+restart:
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.blake.unmute.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.blake.unmute.plist
