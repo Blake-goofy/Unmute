@@ -19,7 +19,7 @@ CheckActive() {
     title := WinGetTitle("ahk_id " . win)
     
     ; Adjust check frequency based on title
-    if StrLower(title) == "multitwitch live selector - brave"
+    if StrLower(title) == "twitch select - brave"
         checkPeriod := 10
     else
         checkPeriod := 1000
@@ -43,7 +43,7 @@ CheckActive() {
     CoordMode("Mouse", "Screen")
     MouseMove(x + w // 2, y + h // 2, 0)
     Click()
-    Sleep(100)
+    Sleep(500)
 
     ; Unmute
     Send("m")
